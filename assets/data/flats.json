@@ -1,0 +1,47 @@
+{
+    "flats":
+    [
+        {
+            "id": "01",
+            "name": "Stan 01",
+            "size": "50",
+            "structure": "two-room",
+            "floor": "first"
+        },
+        {
+            "id": "02",
+            "name": "Stan 02",
+            "size": "30",
+            "structure": "one-room",
+            "floor": "first"
+        },
+        {
+            "id": "03",
+            "name": "Stan 03",
+            "size": "70",
+            "structure": "three-room",
+            "floor": "first"
+        },
+        {
+            "id": "04",
+            "name": "Stan 04",
+            "size": "50",
+            "structure": "two-room",
+            "floor": "second"
+        },
+        {
+            "id": "05",
+            "name": "Stan 05",
+            "size": "30",
+            "structure": "one-room",
+            "floor": "second"
+        },
+        {
+            "id": "06",
+            "name": "Stan 06",
+            "size": "70",
+            "structure": "three-room",
+            "floor": "second"
+        }
+    ]
+}

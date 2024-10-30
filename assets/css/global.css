@@ -1,0 +1,28 @@
+:root {
+    --color-text-shadow: black;
+    --color-text-main: rgb(73, 73, 73);
+    --color-text-heading: rgb(252, 217, 121);
+
+    --color-page-window: rgb(48, 48, 48);
+    --color-page-main: rgb(255, 254, 253);
+    --color-page-outline: rgb(44, 44, 44);
+
+    --transition-short: 0.2s;
+}
+
+@font-face {
+	font-family: "tinos";
+	font-weight: normal;
+    src: url("../fonts/Tinos-Regular.ttf");
+}
+
+body {
+    font-family: tinos;
+    margin: 0px;
+    background-color: var(--color-page-main);
+}
+
+a {
+    color: var(--color-text-main);
+    text-decoration: none;
+}
