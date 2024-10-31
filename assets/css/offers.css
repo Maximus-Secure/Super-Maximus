@@ -229,7 +229,7 @@
 
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 100px;
 }
 
 #offers .row {
@@ -263,6 +263,10 @@
 
 #offers .row .item h2 {
     font-size: 24px;
+}
+
+#offers .row .item .structure {
+    font-size: 20px;
 }
 
 #offers .row .item img {

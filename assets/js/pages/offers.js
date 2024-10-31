@@ -8,55 +8,104 @@ function initOffersPage() {
 
     initSelectors();
 
-    //loadOffers();
+    loadOffers();
 }
 
 async function loadOffers() {
-    try
-    {
-        initFlats();
+    try {
+        let template = await initItemTemplate();
+        await initFlats(template);
     }
-    catch(e) {
+    catch (e) {
         console.error(e);
     }
 }
 
-async function initFlats() {
+async function initItemTemplate() {
+    return fetch("../assets/page-parts/project-item.html")
+        .then((response) => response.text())
+        .then((html) => {
+            const parser = new DOMParser();
+            return parser.parseFromString(html, "text/html").querySelector("body").querySelector(".item");
+        });
+}
+
+let flats = [];
+const rowItems = 4;
+
+async function initFlats(template) {
+    let counter = 0;
+    let container = document.getElementById("offers");
+    let currentRow;
     let json = await initFlatsJson();
-    for (let entry of json.projects) {
-        if (entry.id == project_name) {
-            document.querySelector("title").innerHTML = entry.name.concat(" | Corax Inženjering");
-            document.getElementById("main-info").querySelector(".heading").querySelector("h1").innerHTML = entry.name;
-            await fetch(("../assets/projects/").concat(project_name).concat("/description.txt"))
-            .then((res) => res.text())
-            .then((text) => {
-                document.getElementById("main-info").querySelector(".text").querySelector("p").innerHTML = text;
-            }).catch(console.log("error"));
-            await fetch(("../assets/projects/").concat(project_name).concat("/items.txt"))
-            .then((res) => res.text())
-            .then((text) => {
-                let items = text.split("\n");
-                let container = document.getElementById("main-info").querySelector(".text").querySelector("ul");
-                for (let item of items) {
-                    let li = document.createElement("li");
-                    li.innerHTML = item;
-                    container.append(li);
-                }
-            }).catch(console.log("error"));
-            return;
+    for (let entry of json.flats) {
+        if (counter % rowItems == 0) {
+            currentRow = document.createElement("div");
+            currentRow.classList.add("row");
+            container.appendChild(currentRow);
         }
+        let newItem = template.cloneNode(true);
+        currentRow.appendChild(newItem);
+        newItem.setAttribute("href", ("../offer?o=").concat(entry.id).concat("&t=f"));
+        newItem.querySelector("img").setAttribute("src", "https://placehold.co/512x512?text=PROBNI STAN"); //TODO
+        newItem.querySelector(".name").innerHTML = entry.name;
+        newItem.querySelector(".floor-size").innerHTML = resolveFloor(entry.floor).concat(" - ").concat(entry.size).concat("m2");
+        newItem.querySelector(".structure").innerHTML = resolveStructure(entry.structure);
+        flats.push(newItem);
+        counter++;
     }
-    tools.showElement(body.querySelector("main"), false);
-    tools.showElement(document.getElementById("error"), true);
-    tools.showElement(footer, false);
 }
 
 async function initFlatsJson() {
     let response = await fetch("../assets/data/flats.json");
-        if (!response.ok) {
-            alert("Error loading project.");
-        }
-        return await response.json();
+    if (!response.ok) {
+        alert("Error loading project.");
+    }
+    return await response.json();
+}
+
+function resolveFloor(floor) {
+    switch (floor) {
+        case "basement":
+            return "Podrum";
+
+        case "ground":
+            return "Prizemlje";
+
+        case "first":
+            return "Prvi Sprat";
+
+        case "second":
+            return "Drugi Sprat";
+
+        case "third":
+            return "Treći Sprat";
+
+        case "fourth":
+            return "Četvrti Sprat";
+
+        case "attic":
+            return "Potkrovlje";
+
+        default:
+            return "ERROR";
+    }
+}
+
+function resolveStructure(structure) {
+    switch (structure) {
+        case "one-room":
+            return "JEDNOSOBAN";
+
+        case "two-room":
+            return "DVOSOBAN";
+
+        case "three-room":
+            return "TROSOBAN";
+
+        default:
+            return "ERROR";
+    }
 }
 
 let floorOption;
