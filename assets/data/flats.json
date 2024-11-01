@@ -4,49 +4,241 @@
         {
             "id": "01",
             "name": "Stan 01",
-            "size": "50",
-            "structure": "two-room",
-            "floor": "first",
+            "size": "30.76",
+            "structure": "apartment",
+            "floor": "ground",
             "available": "true"
         },
         {
             "id": "02",
             "name": "Stan 02",
-            "size": "30",
-            "structure": "one-room",
-            "floor": "first",
+            "size": "30.02",
+            "structure": "apartment",
+            "floor": "ground",
             "available": "true"
         },
         {
             "id": "03",
             "name": "Stan 03",
-            "size": "70",
-            "structure": "three-room",
-            "floor": "first",
+            "size": "45.10",
+            "structure": "one-room",
+            "floor": "ground",
             "available": "true"
         },
         {
             "id": "04",
             "name": "Stan 04",
-            "size": "50",
-            "structure": "two-room",
-            "floor": "second",
-            "available": "false"
+            "size": "45.02",
+            "structure": "one-room",
+            "floor": "first",
+            "available": "true"
         },
         {
             "id": "05",
             "name": "Stan 05",
-            "size": "30",
-            "structure": "one-room",
-            "floor": "second",
+            "size": "67.28",
+            "structure": "two-room",
+            "floor": "first",
             "available": "true"
         },
         {
             "id": "06",
             "name": "Stan 06",
-            "size": "70",
-            "structure": "three-room",
+            "size": "30.13",
+            "structure": "apartment",
+            "floor": "first",
+            "available": "true"
+        },
+        {
+            "id": "07",
+            "name": "Stan 07",
+            "size": "67.51",
+            "structure": "two-room",
+            "floor": "first",
+            "available": "true"
+        },
+        {
+            "id": "08",
+            "name": "Stan 08",
+            "size": "30.33",
+            "structure": "apartment",
+            "floor": "first",
+            "available": "true"
+        },
+        {
+            "id": "09",
+            "name": "Stan 09",
+            "size": "55.11",
+            "structure": "one-room",
+            "floor": "first",
+            "available": "true"
+        },
+        {
+            "id": "10",
+            "name": "Stan 10",
+            "size": "45.02",
+            "structure": "one-room",
             "floor": "second",
+            "available": "true"
+        },
+        {
+            "id": "11",
+            "name": "Stan 11",
+            "size": "67.28",
+            "structure": "two-room",
+            "floor": "second",
+            "available": "true"
+        },
+        {
+            "id": "12",
+            "name": "Stan 12",
+            "size": "30.13",
+            "structure": "apartment",
+            "floor": "second",
+            "available": "true"
+        },
+        {
+            "id": "13",
+            "name": "Stan 13",
+            "size": "67.51",
+            "structure": "two-room",
+            "floor": "second",
+            "available": "true"
+        },
+        {
+            "id": "14",
+            "name": "Stan 14",
+            "size": "30.33",
+            "structure": "apartment",
+            "floor": "second",
+            "available": "true"
+        },
+        {
+            "id": "15",
+            "name": "Stan 15",
+            "size": "55.11",
+            "structure": "one-room",
+            "floor": "second",
+            "available": "true"
+        },
+        {
+            "id": "16",
+            "name": "Stan 16",
+            "size": "45.02",
+            "structure": "one-room",
+            "floor": "third",
+            "available": "true"
+        },
+        {
+            "id": "17",
+            "name": "Stan 17",
+            "size": "67.28",
+            "structure": "two-room",
+            "floor": "third",
+            "available": "true"
+        },
+        {
+            "id": "18",
+            "name": "Stan 18",
+            "size": "30.13",
+            "structure": "apartment",
+            "floor": "third",
+            "available": "true"
+        },
+        {
+            "id": "19",
+            "name": "Stan 19",
+            "size": "67.51",
+            "structure": "two-room",
+            "floor": "third",
+            "available": "true"
+        },
+        {
+            "id": "20",
+            "name": "Stan 20",
+            "size": "30.33",
+            "structure": "apartment",
+            "floor": "third",
+            "available": "true"
+        },
+        {
+            "id": "21",
+            "name": "Stan 21",
+            "size": "55.11",
+            "structure": "one-room",
+            "floor": "third",
+            "available": "true"
+        },
+        {
+            "id": "22",
+            "name": "Stan 22",
+            "size": "45.02",
+            "structure": "one-room",
+            "floor": "fourth",
+            "available": "true"
+        },
+        {
+            "id": "23",
+            "name": "Stan 23",
+            "size": "67.28",
+            "structure": "two-room",
+            "floor": "fourth",
+            "available": "true"
+        },
+        {
+            "id": "24",
+            "name": "Stan 24",
+            "size": "30.13",
+            "structure": "apartment",
+            "floor": "fourth",
+            "available": "true"
+        },
+        {
+            "id": "25",
+            "name": "Stan 25",
+            "size": "67.51",
+            "structure": "two-room",
+            "floor": "fourth",
+            "available": "true"
+        },
+        {
+            "id": "26",
+            "name": "Stan 26",
+            "size": "30.33",
+            "structure": "apartment",
+            "floor": "fourth",
+            "available": "true"
+        },
+        {
+            "id": "27",
+            "name": "Stan 27",
+            "size": "55.11",
+            "structure": "one-room",
+            "floor": "fourth",
+            "available": "true"
+        },
+        {
+            "id": "28",
+            "name": "Stan 28",
+            "size": "113.48",
+            "structure": "three-room",
+            "floor": "attic",
+            "available": "true"
+        },
+        {
+            "id": "29",
+            "name": "Stan 29",
+            "size": "85.62",
+            "structure": "three-room",
+            "floor": "attic",
+            "available": "true"
+        },
+        {
+            "id": "30",
+            "name": "Stan 30",
+            "size": "75.44",
+            "structure": "two-room",
+            "floor": "attic",
             "available": "true"
         }
     ]

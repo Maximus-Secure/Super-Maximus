@@ -1,6 +1,6 @@
 #main-image {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -44,7 +44,7 @@
 }
 
 #main-image .text h1 {
-    font-size: 26px;
+    font-size: 40px;
     width: 100%;
     position: relative;
 }

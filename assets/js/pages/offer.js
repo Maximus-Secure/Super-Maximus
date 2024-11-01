@@ -37,9 +37,29 @@ async function initFlat(id) {
             continue;
         }
         let textElement = document.getElementById("main-info").querySelector(".text");
+        document.querySelector("title").inenrHTML = (entry.name).concat(" - Super Maximus");
         textElement.querySelector(".name").innerHTML = entry.name;
         textElement.querySelector(".floor-size").innerHTML = resolveFloor(entry.floor).concat(" - ").concat(entry.size).concat("m2");
         textElement.querySelector(".structure").innerHTML = resolveStructure(entry.structure);
+
+        let url;
+        let previewElement = document.getElementById("detail-info-preview");
+        let previewElementImage = previewElement.querySelector("img");
+        url = ("../assets/images/offers/f").concat(id).concat("/preview");
+        previewElementImage.addEventListener("error", () => { previewElementImage.setAttribute("src", "../assets/images/offers/noimage.jpg"); });
+        previewElementImage.setAttribute("src", url); 
+
+        let planElement = document.getElementById("detail-info-plan");
+        let planElementImage = planElement.querySelector("img");
+        url = ("../assets/images/offers/f").concat(entry.id).concat("/plan");
+        planElementImage.addEventListener("error", () => { tools.showElement(planElement, false); });
+        planElementImage.setAttribute("src", url); 
+
+        let locationElement = document.getElementById("detail-info-location");
+        let locationElementImage = locationElement.querySelector("img");
+        url = ("../assets/images/offers/f").concat(entry.id).concat("/location");
+        locationElementImage.addEventListener("error", () => { tools.showElement(locationElement, false); });
+        locationElementImage.setAttribute("src", url); 
     }
 }
 
@@ -81,6 +101,9 @@ function resolveFloor(floor) {
 
 function resolveStructure(structure) {
     switch (structure) {
+        case "apartment":
+            return "GARSONJERA";
+
         case "one-room":
             return "JEDNOSOBAN";
 

@@ -47,10 +47,15 @@ async function initFlats(template) {
         let newItem = template.cloneNode(true);
         currentRow.appendChild(newItem);
         newItem.setAttribute("href", ("../offer?o=").concat(entry.id).concat("&t=f"));
-        newItem.querySelector("img").setAttribute("src", "https://placehold.co/512x512?text=PROBNI STAN"); //TODO
         newItem.querySelector(".name").innerHTML = entry.name;
         newItem.querySelector(".floor-size").innerHTML = resolveFloor(entry.floor).concat(" - ").concat(entry.size).concat("m2");
         newItem.querySelector(".structure").innerHTML = resolveStructure(entry.structure);
+
+        let url = ("../assets/images/offers/f").concat(entry.id).concat("/preview");
+        let newItemImage = newItem.querySelector("img");
+        newItemImage.addEventListener("error", () => { newItemImage.setAttribute("src", "../assets/images/offers/noimage.jpg"); });
+        newItemImage.setAttribute("src", url); 
+
         flats.push(newItem);
         counter++;
     }
@@ -94,6 +99,9 @@ function resolveFloor(floor) {
 
 function resolveStructure(structure) {
     switch (structure) {
+        case "apartment":
+            return "GARSONJERA";
+
         case "one-room":
             return "JEDNOSOBAN";
 
