@@ -39,14 +39,14 @@ async function initFlats(template) {
     let currentRow;
     let json = await initFlatsJson();
     for (let entry of json.flats) {
-        if (counter % rowItems == 0) {
+        /*if (counter % rowItems == 0) {
             currentRow = document.createElement("div");
             currentRow.classList.add("row");
             container.appendChild(currentRow);
-        }
+        }*/
         let newItem = template.cloneNode(true);
-        currentRow.appendChild(newItem);
-        newItem.setAttribute("href", ("../offer?o=").concat(entry.id).concat("&t=f"));
+        container.appendChild(newItem);
+        newItem.setAttribute("href", ("../offer?o=").concat(entry.id));/*.concat("&t=f"))*/
         newItem.querySelector(".name").innerHTML = entry.name;
         newItem.querySelector(".floor-size").innerHTML = resolveFloor(entry.floor).concat(" - ").concat(entry.size).concat("m2");
         newItem.querySelector(".structure").innerHTML = resolveStructure(entry.structure);
@@ -56,7 +56,7 @@ async function initFlats(template) {
         newItemImage.addEventListener("error", () => { newItemImage.setAttribute("src", "../assets/images/offers/noimage.jpg"); });
         newItemImage.setAttribute("src", url); 
 
-        flats.push(newItem);
+        flats.push(new Flat(newItem, entry));
         counter++;
     }
 }
@@ -116,6 +116,11 @@ function resolveStructure(structure) {
     }
 }
 
+function Flat(element, data) {
+    this.element = element;
+    this.data = data;
+}
+
 let floorOption;
 let structureOption;
 let sizeOption;
@@ -170,4 +175,46 @@ function initSelectors() {
             tools.showElement(sizeOptionList, false);
         });
     }
+
+    let searchButton = document.getElementById("search-options");
+    searchButton.addEventListener("click", () => {
+        let selectedFlats = [];
+        
+        let splitSizeOption = sizeOption.split("-");
+        let minSize;
+        let maxSize;
+        try {
+            minSize = parseFloat(splitSizeOption[0]);
+            maxSize = parseFloat(splitSizeOption[1]);
+        } catch {
+            minSize = 0;
+            maxSize = 200;
+        }
+
+        for (let item of flats) {
+            if (floorOption != "all") {
+                if (item.data.floor != floorOption) {
+                    continue;
+                }
+            }
+            if (structureOption != "all") {
+                if (item.data.structure != structureOption) {
+                    continue;
+                }
+            }
+            let size = parseFloat(item.data.size);
+            if (size < minSize || size >= maxSize) {
+                continue
+            }
+            selectedFlats.push(item);
+        }
+
+        for (let item of flats) {
+            if (selectedFlats.includes(item)) {
+                tools.showElement(item.element, true);
+            } else {
+                tools.showElement(item.element, false);
+            }
+        }
+    });
 }

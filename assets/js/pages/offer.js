@@ -23,6 +23,10 @@ async function loadOffer(id, type) {
             case "f":
                 await initFlat(id);
                 break;
+
+            case undefined:
+                await initFlat(id);
+                break;
         }
     }
     catch (e) {
