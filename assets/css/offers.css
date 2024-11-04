@@ -98,7 +98,8 @@
 #selector .content .wrapper .selections {
     display: flex;
     flex-direction: row;
-
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 40px;
 }
 
@@ -283,4 +284,17 @@
     width: 300px;
     height: 300px;
     object-fit: contain;
+}
+
+@media (max-width: 1280px) {
+    #selector .content .wrapper {
+        padding: 20px 40px 20px 40px;
+        margin: 0px 20px 0px 20px;
+        gap: 25px;
+    }
+
+    #selector .content .wrapper .selections {
+        width: fit-content;
+        gap: 20px;
+    }
 }

@@ -1,6 +1,6 @@
-#main-image {
+#landing {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -8,13 +8,19 @@
     align-items: center;
 }
 
-#main-image img {
+#landing::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background-image: url("../images/temp/pocetna.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
-#main-image .text {
+#landing .text {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +36,7 @@
     overflow: hidden;
 }
 
-#main-image .text::before {
+#landing .text::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -43,13 +49,13 @@
     border-radius: 5px;
 }
 
-#main-image .text h1 {
+#landing .text h1 {
     font-size: 40px;
     width: 100%;
     position: relative;
 }
 
-#main-image .text h1::before {
+#landing .text h1::before {
     content:'';
     position: absolute;
     bottom: -4px;
@@ -59,15 +65,15 @@
     background-color: var(--color-text-heading);
 }
 
-#main-image .text h2 {
+#landing .text h2 {
     font-size: 18px;
 }
 
-#main-image .text h3 {
+#landing .text h3 {
     font-size: 12px;
 }
 
-#main-image .text :is(h1,h2,h3) {
+#landing .text :is(h1,h2,h3) {
     margin: 0px;
     color: var(--color-text-heading);
     font-weight: normal;
@@ -75,14 +81,14 @@
     text-shadow: 0px 2px 10px var(--color-text-shadow);
 }
 
-#main-image .text a {
+#landing .text a {
     position: relative;
     margin-top: 20px;
     padding: 10px 15px 10px 15px;
     color: var(--color-text-main);
 }
 
-#main-image .text a::before {
+#landing .text a::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -96,24 +102,37 @@
     box-shadow: 0px 2px 5px var(--color-text-shadow);
 }
 
-#main-image .text .decoration {
+#landing .text .decorations {
     position: absolute;
-    width: 80px;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+#landing .text .decorations img {
+    position: absolute;
+    width: 90px;
     height: auto;
 }
 
-#main-image .text .decoration.first {
+#landing .text .decorations img.first {
     right: -20px;
     bottom: -40px;
 }
 
-#main-image .text .decoration.second {
+#landing .text .decorations img.second {
     left: -30px;
     top: -40px;
     transform: scaleY(-1);
 }
 
-#main-image .transition {
+#landing .transition {
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -130,7 +149,7 @@
     align-items: center;
 
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
 }
 
 #about .wrapper {
@@ -154,4 +173,63 @@
     font-size: 20px;
     text-align: justify;
     width: 100%;
+}
+
+@media (max-width: 1024px) {    
+    #landing .text {
+        position: relative;
+        left: auto;
+    }
+
+    #about .wrapper {
+        width: auto;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 512px) {
+    #landing .text {
+        padding: 20px 40px 20px 40px;
+    }
+
+    #landing .text h1 {
+        font-size: 30px;
+    }
+
+    #landing .text a {
+        font-size: 12px;
+        padding: 8px 13px 8px 13px;
+    }
+
+    #landing .text .decorations img {
+        width: 60px;
+    }
+
+    #landing .text .decorations img.first {
+        right: -15px;
+        bottom: -30px;
+    }
+    
+    #landing .text .decorations img.second {
+        left: -20px;
+        top: -30px;
+    }
+}
+
+@media (max-width: 375px) {
+    #landing .text h1 {
+        font-size: 26px;
+    }
+
+    #landing .text h2 {
+        font-size: 14px;
+    }
+
+    #landing .text h3 {
+        font-size: 10px;
+    }
+
+    #about .wrapper p {
+        font-size: 13px;
+    }
 }

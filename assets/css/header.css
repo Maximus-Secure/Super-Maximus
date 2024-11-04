@@ -60,3 +60,86 @@ header nav {
     align-items: center;
     gap: 50px;
 }
+
+header .wrapper .hamburger {
+    display: none;
+    opacity: 0.7;
+    width: 32px;
+    height: auto;
+    object-fit: contain;
+
+    transition-duration: var(--transition-short);
+}
+
+header .wrapper .hamburger.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+header .wrapper .hamburger.inactive {
+    opacity: 0;
+    pointer-events: none;
+    transition-delay: var(--transition-short);
+}
+
+header .hamburger-menu {
+    display: none;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 100%;
+
+    z-index: 20;
+    background-color: var(--color-page-main);
+
+    transition-duration: var(--transition-short);
+}
+
+header .hamburger-menu.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+header .hamburger-menu.inactive {
+    opacity: 0;
+    pointer-events: none;
+    transition-delay: var(--transition-short);
+}
+
+header .hamburger-menu .close {
+    width: 24px;
+    padding: 10px;
+    height: auto;
+    object-fit: contain;
+    align-self: flex-end;
+}
+
+header .hamburger-menu nav {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (not (hover: hover)) or (max-width: 1024px) {
+    header .wrapper {
+        justify-content: space-between;
+    }
+
+    header .wrapper nav {
+        display: none;
+    }
+
+    header .wrapper .hamburger {
+        display: block;
+    }
+}
+
+@media (max-width: 425px) {
+    header .wrapper {
+        padding: 25px;
+    }
+    
+}
