@@ -24,7 +24,7 @@ async function loadOffer(id, type) {
                 await initFlat(id);
                 break;
 
-            case undefined:
+            default:
                 await initFlat(id);
                 break;
         }

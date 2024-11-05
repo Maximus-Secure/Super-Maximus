@@ -53,6 +53,7 @@
 #selector .content :is(h1, h2) {
     margin: 0px;
     font-weight: normal;
+    text-align: center;
     color: var(--color-text-heading);
     text-shadow: 0px 2px 10px var(--color-text-shadow);
 }
@@ -225,23 +226,13 @@
 }
 
 #offers {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin: 100px 50px 100px 50px;
 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     gap: 100px 100px;
-}
-
-#offers .row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    gap: 100px;
 }
 
 #offers .item {
@@ -262,7 +253,7 @@
     display: none;
 }
 
-#offers .item :is(h1, h2) {
+#offers .item :is(h1, h2, h3) {
     margin: 0px 0px 10px 0px;
     font-weight: normal;
     color: var(--color-text-main);
@@ -276,7 +267,7 @@
     font-size: 24px;
 }
 
-#offers .item .structure {
+#offers .item h3 {
     font-size: 20px;
 }
 
@@ -296,5 +287,96 @@
     #selector .content .wrapper .selections {
         width: fit-content;
         gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    #selector .content .wrapper .selections .item {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    #offers {
+        margin: 100px 40px 100px 40px;
+        gap: 50px 50px;
+    }
+}
+
+@media (max-width: 640px) {
+    #selector .content .wrapper .selections .item>h2 {
+        font-size: 18px;
+    }
+
+    #selector .content .wrapper .selections .item .options {
+        padding: 8px 14px 8px 24px;
+    }
+
+    #selector .content .wrapper .selections .item .options h2 {
+        font-size: 14px;
+    }
+
+    #selector .content .wrapper .search {
+        padding: 8px 14px 8px 24px;
+    }
+
+    #selector .content .wrapper .search h3 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 425px) {
+    #selector .content .wrapper {
+        padding: 20px;
+    }
+
+    #selector .content .wrapper .decorations img {
+        position: absolute;
+        width: 60px;
+        height: auto;
+    }
+    
+    #selector .content .wrapper .decorations img.first {
+        right: -10px;
+        bottom: -30px;
+    }
+    
+    #selector .content .wrapper .decorations img.second {
+        left: -15px;
+        top: -30px;
+        transform: scaleY(-1);
+    }
+
+    #selector .content .wrapper .text h1 {
+        font-size: 22px;
+    }
+
+    #offers .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 375px) {
+    #selector .content .wrapper .selections .item {
+        width: 100%;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #offers .item :is(h1, h2, h3) {
+        margin: 0px 0px 5px 0px;
+    }
+
+    #offers .item h1 {
+        font-size: 24px;
+    }
+    
+    #offers .item h2 {
+        font-size: 20px;
+    }
+    
+    #offers .item h3 {
+        font-size: 16px;
     }
 }

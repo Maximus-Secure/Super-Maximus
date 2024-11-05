@@ -111,7 +111,7 @@ header .hamburger-menu.inactive {
 
 header .hamburger-menu .close {
     width: 24px;
-    padding: 10px;
+    padding: 25px 50px 25px 50px;
     height: auto;
     object-fit: contain;
     align-self: flex-end;
@@ -141,5 +141,8 @@ header .hamburger-menu nav {
     header .wrapper {
         padding: 25px;
     }
-    
+
+    header .hamburger-menu .close {
+        padding: 25px;
+    }
 }
