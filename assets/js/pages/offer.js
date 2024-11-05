@@ -49,19 +49,19 @@ async function initFlat(id) {
         let url;
         let previewElement = document.getElementById("detail-info-preview");
         let previewElementImage = previewElement.querySelector("img");
-        url = ("../assets/images/offers/f").concat(id).concat("/preview");
+        url = ("../assets/images/offers/f").concat(id).concat("/preview.jpg");
         previewElementImage.addEventListener("error", () => { previewElementImage.setAttribute("src", "../assets/images/offers/noimage.jpg"); });
         previewElementImage.setAttribute("src", url); 
 
         let planElement = document.getElementById("detail-info-plan");
         let planElementImage = planElement.querySelector("img");
-        url = ("../assets/images/offers/f").concat(entry.id).concat("/plan");
+        url = ("../assets/images/offers/f").concat(entry.id).concat("/plan.jpg");
         planElementImage.addEventListener("error", () => { tools.showElement(planElement, false); });
         planElementImage.setAttribute("src", url); 
 
         let locationElement = document.getElementById("detail-info-location");
         let locationElementImage = locationElement.querySelector("img");
-        url = ("../assets/images/offers/f").concat(entry.id).concat("/location");
+        url = ("../assets/images/offers/f").concat(entry.id).concat("/location.jpg");
         locationElementImage.addEventListener("error", () => { tools.showElement(locationElement, false); });
         locationElementImage.setAttribute("src", url); 
     }
