@@ -15,7 +15,22 @@
             "size": "30.02",
             "structure": "apartment",
             "floor": "ground",
-            "available": "true"
+            "available": "true",
+            "images":
+            [
+                {
+                    "name": "stan2-0.jpg"
+                },
+                {
+                    "name": "stan2-1.jpg"
+                },
+                {
+                    "name": "stan2-2.jpg"
+                },
+                {
+                    "name": "stan2-3.jpg"
+                }
+            ]
         },
         {
             "id": "03",

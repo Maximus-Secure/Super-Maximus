@@ -51,9 +51,12 @@ async function initFlats(template) {
         newItem.querySelector(".floor-size").innerHTML = resolveFloor(entry.floor).concat(" - ").concat(entry.size).concat("m2");
         newItem.querySelector(".structure").innerHTML = resolveStructure(entry.structure);
 
-        let url = ("../assets/images/offers/f").concat(entry.id).concat("/preview");
+        let url = "";
+        if (entry.images != undefined) {
+            url = ("../assets/images/offers/f").concat(entry.id).concat("/renders/").concat(entry.images[0].name);
+        }
         let newItemImage = newItem.querySelector("img");
-        newItemImage.addEventListener("error", () => { newItemImage.setAttribute("src", "../assets/images/offers/noimage.jpg"); });
+        newItemImage.addEventListener("error", () => { newItemImage.setAttribute("src", "../assets/images/temp/noimage.jpg"); });
         newItemImage.setAttribute("src", url); 
 
         flats.push(new Flat(newItem, entry));

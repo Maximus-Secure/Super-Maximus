@@ -47,19 +47,38 @@ async function initFlat(id) {
         textElement.querySelector(".structure").innerHTML = resolveStructure(entry.structure);
 
         let url;
-        let previewElement = document.getElementById("detail-info-preview");
-        let previewElementImage = previewElement.querySelector("img");
-        url = ("../assets/images/offers/f").concat(id).concat("/preview.jpg");
-        previewElementImage.addEventListener("error", () => { previewElementImage.setAttribute("src", "../assets/images/offers/noimage.jpg"); });
-        previewElementImage.setAttribute("src", url); 
+        let galleryElement = document.getElementById("detail-info-gallery");
+        let galleryElementImage = galleryElement.querySelector(".main-image");
+        let galleryElementImages = galleryElement.querySelector(".images");
+        if (entry.images == undefined) {
+            tools.showElement(galleryElement, false);
+        } else {
+            let tempUrl = ("../assets/images/offers/f").concat(id).concat("/renders/");
+            galleryElementImage.setAttribute("src", tempUrl.concat(entry.images[0].name));
+            for (let image of entry.images) {
+                let el = document.createElement("img");
+                el.setAttribute("src", tempUrl.concat(image.name));
+                el.addEventListener("click", () => {
+                    galleryElementImage.setAttribute("src", el.getAttribute("src"));
+                });
+                galleryElementImages.appendChild(el);
+            }
+        }
 
-        let planElement = document.getElementById("detail-info-plan");
+        let backgroundImage = document.getElementById("main-info").querySelector("img");
+        url = ("../assets/images/offers/f").concat(id).concat("/renders/").concat(entry.images[0].name);
+        backgroundImage.addEventListener("error", () => { backgroundImage.setAttribute("src", "../assets/images/temp/pocetna.jpg"); });
+        backgroundImage.setAttribute("src", url);
+
+        let projectElement = document.getElementById("detail-info-project");
+
+        let planElement = projectElement.querySelector(".plan");
         let planElementImage = planElement.querySelector("img");
         url = ("../assets/images/offers/f").concat(entry.id).concat("/plan.jpg");
         planElementImage.addEventListener("error", () => { tools.showElement(planElement, false); });
         planElementImage.setAttribute("src", url); 
 
-        let locationElement = document.getElementById("detail-info-location");
+        let locationElement = projectElement.querySelector(".location");
         let locationElementImage = locationElement.querySelector("img");
         url = ("../assets/images/offers/f").concat(entry.id).concat("/location.jpg");
         locationElementImage.addEventListener("error", () => { tools.showElement(locationElement, false); });

@@ -40,7 +40,9 @@
         </header>
         <main>
             <section id="main-info">
-                <img src="../assets/images/temp/pocetna.jpg">
+                <div class="main-image">
+                    <img src="../assets/images/temp/pocetna.jpg">
+                </div>
                 <div class="text">
                     <h1 class="name">Stan 01</h1>
                     <h2 class="floor-size">Prizemlje - 40m2</h2>
@@ -54,18 +56,23 @@
                 <div class="transition"></div>
             </section>
             <section id="detail-info">
-                <div id="detail-info-preview" class="item active">
-                    <h1>PRIKAZ STANA</h1>
-                    <img src="../assets/images/offers/noimage.jpg">
-                </div>
-                <div id="detail-info-plan" class="item active">
-                    <h1>PLAN STANA</h1>
-                    <img src="../assets/images/offers/noimage.jpg">
-                </div>
-                <div id="detail-info-location" class="item active">
-                    <h1>GDE SE NALAZI STAN</h1>
-                    <img src="../assets/images/offers/noimage.jpg">
-                </div>
+                <article id="detail-info-gallery" class="item active">
+                    <h1>GALERIJA</h1>
+                    <div class="wrapper">
+                        <img class="main-image" src="../assets/images/temp/noimage.jpg">
+                        <div class="images"></div>
+                    </div>
+                </article>
+                <article id="detail-info-project" class="item active">
+                    <div class="plan">
+                        <h1>PLAN STANA</h1>
+                        <img src="../assets/images/temp/noimage.jpg">
+                    </div>
+                    <div class="location">
+                        <h1>GDE SE NALAZI STAN</h1>
+                        <img src="../assets/images/temp/noimage.jpg">
+                    </div>
+                </article>
             </section>
         </main>
         <footer>
