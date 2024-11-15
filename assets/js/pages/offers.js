@@ -31,19 +31,11 @@ async function initItemTemplate() {
 }
 
 let flats = [];
-const rowItems = 4;
 
 async function initFlats(template) {
-    let counter = 0;
     let container = document.getElementById("offers");
-    let currentRow;
     let json = await initFlatsJson();
     for (let entry of json.flats) {
-        /*if (counter % rowItems == 0) {
-            currentRow = document.createElement("div");
-            currentRow.classList.add("row");
-            container.appendChild(currentRow);
-        }*/
         let newItem = template.cloneNode(true);
         container.appendChild(newItem);
         newItem.setAttribute("href", ("../offer?o=").concat(entry.id));/*.concat("&t=f"))*/
@@ -60,7 +52,6 @@ async function initFlats(template) {
         newItemImage.setAttribute("src", url); 
 
         flats.push(new Flat(newItem, entry));
-        counter++;
     }
 }
 
@@ -219,5 +210,7 @@ function initSelectors() {
                 tools.showElement(item.element, false);
             }
         }
+
+        document.getElementById("offers").scrollIntoView({ behavior: "smooth", block: "start"});
     });
 }

@@ -3,7 +3,8 @@
     --color-text-main: rgb(73, 73, 73);
     --color-text-heading: rgb(252, 217, 121);
 
-    --color-page-window: rgb(48, 48, 48);
+    /*--color-page-window: rgb(48, 48, 48);*/
+    --color-page-window: rgb(102, 102, 102);
     --color-page-main: rgb(255, 254, 253);
     --color-page-outline: rgb(44, 44, 44);
 

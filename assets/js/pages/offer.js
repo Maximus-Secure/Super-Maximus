@@ -35,7 +35,13 @@ async function loadOffer(id, type) {
 }
 
 async function initFlat(id) {
-    let json = await initFlatsJson();
+    let json;
+    try {
+        json = await initJson("../assets/data/flats.json");
+    } catch(e) {
+        alert("Error loading apartments.");
+        throw new Error(e);
+    }
     for (let entry of json.flats) {
         if (entry.id != id) {
             continue;
@@ -66,7 +72,9 @@ async function initFlat(id) {
         }
 
         let backgroundImage = document.getElementById("main-info").querySelector("img");
-        url = ("../assets/images/offers/f").concat(id).concat("/renders/").concat(entry.images[0].name);
+        if (entry.images) {
+            url = ("../assets/images/offers/f").concat(id).concat("/renders/").concat(entry.images[0].name);
+        }
         backgroundImage.addEventListener("error", () => { backgroundImage.setAttribute("src", "../assets/images/temp/pocetna.jpg"); });
         backgroundImage.setAttribute("src", url);
 
@@ -84,12 +92,61 @@ async function initFlat(id) {
         locationElementImage.addEventListener("error", () => { tools.showElement(locationElement, false); });
         locationElementImage.setAttribute("src", url); 
     }
+
+    let tablesJson;
+    try {
+        tablesJson = await initJson("../assets/data/flats-tables.json");
+    } catch(e) {
+        console.error("Could not load tables.");
+    }
+
+    if (tablesJson != null) {
+        for (let entry of tablesJson.tables) {
+            if (entry.id != id) {
+                continue;
+            }
+            const tableBody = document.getElementById("detail-table").querySelector("table").querySelector("tbody");
+            for (let row of entry.rooms) {
+                const newRowElement = document.createElement("tr");
+                const nElement = document.createElement("td");
+                nElement.innerHTML = row.n;
+                newRowElement.appendChild(nElement);
+
+                const nameElement = document.createElement("td");
+                nameElement.innerHTML = row.name;
+                newRowElement.appendChild(nameElement);
+
+                const pElement = document.createElement("td");
+                pElement.innerHTML = row.p;
+                newRowElement.appendChild(pElement);
+
+                const oElement = document.createElement("td");
+                oElement.innerHTML = row.o;
+                newRowElement.appendChild(oElement);
+
+                const floorElement = document.createElement("td");
+                floorElement.innerHTML = row.floor;
+                newRowElement.appendChild(floorElement);
+
+                const wallElement = document.createElement("td");
+                wallElement.innerHTML = row.wall;
+                newRowElement.appendChild(wallElement);
+
+                const ceilingELement = document.createElement("td");
+                ceilingELement.innerHTML = row.ceiling;
+                newRowElement.appendChild(ceilingELement);
+                tableBody.append(newRowElement);
+            }
+        }
+    } else {
+        tools.showElement(document.getElementById("detail-table"), false);
+    }
 }
 
-async function initFlatsJson() {
-    let response = await fetch("../assets/data/flats.json");
+async function initJson(directory) {
+    let response = await fetch(directory);
     if (!response.ok) {
-        alert("Error loading project.");
+        throw new Error("Error loading json file.");
     }
     return await response.json();
 }

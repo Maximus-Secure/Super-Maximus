@@ -40,7 +40,7 @@
     margin-bottom: 40px;
     z-index: 2;
 
-    box-shadow: 0px 0px 4px var(--color-text-shadow);
+    box-shadow: 0px 0px 10px var(--color-page-main);
     outline: 1px solid var(--color-text-heading);
     border-radius: 5px;
 }
@@ -57,8 +57,8 @@
     opacity: 0.8;
     border-radius: 5px;
 
-    opacity: 0.4;
-    background: radial-gradient(circle, var(--color-page-window) 50%, var(--color-text-heading) 100%);
+    opacity: 0.9;
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 50%, var(--color-text-heading) 100%);
 }
 
 #main-info .text :is(h1,h2,h3) {
@@ -218,6 +218,53 @@
 
 #detail-info .item.inactive {
     display: none;
+}
+
+#detail-table {
+    overflow-x: auto;
+    width: 100%;
+}
+
+#detail-table.inactive {
+    display: none;
+}
+
+#detail-table h1 {
+    font-weight: normal;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 4px;
+}
+
+#detail-table table {
+    padding: 0px 20px 0px 20px;
+    margin: 0px auto 1px auto;
+}
+
+#detail-table :is(td,th) {
+    padding: 20px 30px 20px 30px;
+}
+
+#detail-table th {
+    text-align: left;
+}
+
+#detail-table tr {
+    position: relative;
+}
+
+#detail-table tr::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-text-heading);
+}
+
+#detail-table tbody tr::after {
+    opacity: 0.5;
 }
 
 @media (max-width: 1280px) {
