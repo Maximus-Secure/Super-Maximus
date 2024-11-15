@@ -221,7 +221,9 @@
 }
 
 #detail-table {
-    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 100%;
 }
 
@@ -234,6 +236,11 @@
     text-align: center;
     font-size: 30px;
     letter-spacing: 4px;
+}
+
+#detail-table .wrapper {
+    overflow-x: auto;
+    width: 100%;
 }
 
 #detail-table table {
@@ -304,7 +311,7 @@
     }
 }
 
-@media (max-width: 1279px) {
+@media (width < 1280px) {
     #main-info {
         height: auto;
         flex-direction: column;
@@ -392,5 +399,9 @@
     #main-info .text .decorations img.second {
         left: -15px;
         top: -30px;
+    }
+
+    #detail-table :is(td,th) {
+        padding: 10px 20px 10px 20px;
     }
 }
