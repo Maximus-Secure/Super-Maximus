@@ -30,35 +30,60 @@ async function initItemTemplate() {
         });
 }
 
-let flats = [];
-
+const flats = [];
 async function initFlats(template) {
-    let container = document.getElementById("offers");
-    let json = await initFlatsJson();
-    for (let entry of json.flats) {
-        let newItem = template.cloneNode(true);
+    const container = document.getElementById("offers");
+    let flatsJson;
+    try {
+        flatsJson = await initJson("../assets/data/flats.json");
+    } catch(e) {
+        alert("Greška sa serverom. Molimo pokušajte ponovo posle, ili pošaljite primedbu na mejl nikola2001zagorac@gmail.com")
+        throw new Error(e);
+    }
+    for (let entry of flatsJson.flats) {
+        const newItem = template.cloneNode(true);
         container.appendChild(newItem);
         newItem.setAttribute("href", ("../offer?o=").concat(entry.id));/*.concat("&t=f"))*/
         newItem.querySelector(".name").innerHTML = entry.name;
         newItem.querySelector(".floor-size").innerHTML = resolveFloor(entry.floor).concat(" - ").concat(entry.size).concat("m2");
         newItem.querySelector(".structure").innerHTML = resolveStructure(entry.structure);
-
-        let url = "";
-        if (entry.images != undefined) {
-            url = ("../assets/images/offers/f").concat(entry.id).concat("/renders/").concat(entry.images[0].name);
-        }
-        let newItemImage = newItem.querySelector("img");
-        newItemImage.addEventListener("error", () => { newItemImage.setAttribute("src", "../assets/images/temp/noimage.jpg"); });
-        newItemImage.setAttribute("src", url); 
-
         flats.push(new Flat(newItem, entry));
+    }
+
+    let imagesJson;
+    try {
+        imagesJson = await initJson("../assets/data/flats-images.json");
+    } catch(e) {
+        console.error(e);
+    }
+    if (imagesJson != null) {
+        for (let flat of flats) {
+            const imageElement = flat.element.querySelector("img");
+            if (imagesJson == null) {
+                imageElement.setAttribute("src", "../assets/images/temp/noimage.jpg");
+                continue;
+            }
+            let imageName;
+            for (let entry of imagesJson.flats) {
+                if (entry.id != flat.data.imagesId) {
+                    continue;
+                }
+                imageName = entry.images[0].name;
+            }
+            if (imageName != null) {
+                imageElement.addEventListener("error", () => { imageElement.setAttribute("src", "../assets/images/temp/noimage.jpg"); });
+                imageElement.setAttribute("src", ("../assets/images/offers/renders/").concat(imageName)); 
+            } else {
+                imageElement.setAttribute("src", "../assets/images/temp/noimage.jpg");
+            }
+        }
     }
 }
 
-async function initFlatsJson() {
-    let response = await fetch("../assets/data/flats.json");
+async function initJson(directory) {
+    let response = await fetch(directory);
     if (!response.ok) {
-        alert("Error loading project.");
+        throw new Error("Error loading json file.");
     }
     return await response.json();
 }

@@ -1,0 +1,129 @@
+{
+    "flats":
+    [
+        {
+            "id": "01",
+            "images":
+            [
+                {
+                    "name": "S1-1.jpg"
+                },
+                {
+                    "name": "S1-2.jpg"
+                },
+                {
+                    "name": "S1-3.jpg"
+                },
+                {
+                    "name": "S1-4.jpg"
+                }
+            ]
+        },
+        {
+            "id": "02",
+            "images":
+            [
+                {
+                    "name": "S2-1.jpg"
+                },
+                {
+                    "name": "S2-2.jpg"
+                },
+                {
+                    "name": "S2-3.jpg"
+                }
+            ]
+        },
+        {
+            "id": "03",
+            "images":
+            [
+                {
+                    "name": "S3-1.jpg"
+                },
+                {
+                    "name": "S3-2.jpg"
+                },
+                {
+                    "name": "S3-3.jpg"
+                },
+                {
+                    "name": "S3-4.jpg"
+                },
+                {
+                    "name": "S3-5.jpg"
+                }
+            ]
+        },
+        {
+            "id": "04-10-16-22",
+            "images":
+            [
+                {
+                    "name": "S4-1.jpg"
+                },
+                {
+                    "name": "S4-2.jpg"
+                },
+                {
+                    "name": "S4-3.jpg"
+                },
+                {
+                    "name": "S4-4.jpg"
+                }
+            ]
+        },
+        {
+            "id": "05-11-17-23",
+            "images":
+            [
+                {
+                    "name": "S5-1.jpg"
+                },
+                {
+                    "name": "S5-2.jpg"
+                },
+                {
+                    "name": "S5-3u.jpg"
+                },
+                {
+                    "name": "S5-4u.jpg"
+                }
+            ]
+        },
+        {
+            "id": "06-12-18-24",
+            "images":
+            [
+                {
+                    "name": "S6-1.jpg"
+                },
+                {
+                    "name": "S6-2.jpg"
+                },
+                {
+                    "name": "S6-3.jpg"
+                }
+            ]
+        }
+        ,
+        {
+            "id": "07-13-19-25",
+            "images":
+            [
+                {
+                    "name": "S7-1.jpg"
+                },
+                {
+                    "name": "S7-2.jpg"
+                },
+                {
+                    "name": "S7-3.jpg"
+                },
+                {
+                    "name": "S7-4.jpg"
+                }
+            ]
+        }
+    ]
+}

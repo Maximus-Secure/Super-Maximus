@@ -1,0 +1,203 @@
+.textbox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+    padding: 40px 80px 40px 80px;
+    z-index: 2;
+
+    outline: 1px solid var(--color-text-heading);
+    border-radius: 5px;
+}
+
+.textbox::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: var(--color-page-window);
+    z-index: -1;
+    opacity: 0.8;
+    border-radius: 5px;
+}
+
+.textbox :is(h1,h2,h3) {
+    margin: 0px;
+    color: var(--color-text-heading);
+    font-weight: normal;
+    text-align: center;
+    text-shadow: 0px 2px 10px var(--color-text-shadow);
+}
+
+.textbox h1 {
+    letter-spacing: 4px;
+    font-size: 40px;
+    width: 100%;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.textbox h1::before {
+    content:'';
+    position: absolute;
+    bottom: -4px;
+    left: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-text-heading);
+}
+
+.textbox h2 {
+    font-size: 20px;
+}
+
+.textbox h3 {
+    font-size: 14px;
+}
+
+.textbox a {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0px 10px 0px;
+    margin: 0px 15px 0px 15px;
+    color: var(--color-text-main);
+}
+
+.textbox a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: var(--color-text-heading);
+    z-index: -1;
+    opacity: 0.9;
+    border-radius: 2px 8px 2px 8px;
+    box-shadow: 0px 2px 5px var(--color-text-shadow);
+}
+
+.textbox .decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+.textbox .decorations img {
+    position: absolute;
+    width: 90px;
+    height: auto;
+}
+
+.textbox .decorations img.first {
+    right: -20px;
+    bottom: -40px;
+}
+
+.textbox .decorations img.second {
+    left: -30px;
+    top: -40px;
+    transform: scaleY(-1);
+}
+
+.textbox.light {
+    box-shadow: 0px 0px 10px var(--color-page-main);
+}
+
+.textbox.light::before {
+    opacity: 0.9;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 50%, var(--color-text-heading) 100%);
+}
+
+.textbox.light :is(h1,h2,h3) {
+    text-shadow: none;
+    color: var(--color-page-window);
+}
+
+.textbox.light h1::before {
+    background-color: var(--color-page-window);
+}
+
+.textbox.light a {
+    width: 100%;
+    padding: 5px 0px 5px 0px;
+}
+
+.textbox.light a::before {
+    border-radius: 8px;
+    opacity: 0.8;
+    box-shadow: none;
+}
+
+@media (max-width: 1024px) {
+    .textbox {
+        position: relative;
+        left: auto;
+        margin: 0px auto 0px auto;
+    }
+}
+
+@media (max-width: 512px) {
+    .textbox {
+        padding: 20px 40px 20px 40px;
+    }
+
+    .textbox h1 {
+        font-size: 30px;
+    }
+
+    .textbox a {
+        font-size: 12px;
+        padding: 8px 13px 8px 13px;
+    }
+
+    .textbox.light a {
+        margin-top: 10px;
+        font-size: 13px;
+        padding: 10px 0px 10px 0px;
+    }
+
+    .textbox .decorations img {
+        width: 60px;
+    }
+
+    .textboxt .decorations img.first {
+        right: -20px;
+        bottom: -35px;
+    }
+    
+    .textbox .decorations img.second {
+        left: -25px;
+        top: -30px;
+    }
+}
+
+@media (max-width: 375px) {
+    .textbox {
+        padding: 20px 30px 20px 30px;
+    }
+
+    .textbox h1 {
+        font-size: 26px;
+    }
+
+    .textbox h2 {
+        font-size: 14px;
+    }
+
+    .textbox h3 {
+        font-size: 12px;
+    }
+}

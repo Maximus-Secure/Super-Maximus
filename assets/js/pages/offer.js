@@ -42,42 +42,20 @@ async function initFlat(id) {
         alert("Error loading apartments.");
         throw new Error(e);
     }
+    let flatImagesId;
     for (let entry of json.flats) {
         if (entry.id != id) {
             continue;
         }
-        let textElement = document.getElementById("main-info").querySelector(".text");
-        document.querySelector("title").inenrHTML = (entry.name).concat(" - Super Maximus");
+        flatImagesId = entry.imagesId;
+
+        let textElement = document.getElementById("landing").querySelector(".textbox");
+        document.title = (entry.name).concat(" - Super Maximus");
         textElement.querySelector(".name").innerHTML = entry.name;
         textElement.querySelector(".floor-size").innerHTML = resolveFloor(entry.floor).concat(" - ").concat(entry.size).concat("m2");
         textElement.querySelector(".structure").innerHTML = resolveStructure(entry.structure);
 
         let url;
-        let galleryElement = document.getElementById("detail-info-gallery");
-        let galleryElementImage = galleryElement.querySelector(".main-image");
-        let galleryElementImages = galleryElement.querySelector(".images");
-        if (entry.images == undefined) {
-            tools.showElement(galleryElement, false);
-        } else {
-            let tempUrl = ("../assets/images/offers/f").concat(id).concat("/renders/");
-            galleryElementImage.setAttribute("src", tempUrl.concat(entry.images[0].name));
-            for (let image of entry.images) {
-                let el = document.createElement("img");
-                el.setAttribute("src", tempUrl.concat(image.name));
-                el.addEventListener("click", () => {
-                    galleryElementImage.setAttribute("src", el.getAttribute("src"));
-                });
-                galleryElementImages.appendChild(el);
-            }
-        }
-
-        let backgroundImage = document.getElementById("main-info").querySelector("img");
-        if (entry.images) {
-            url = ("../assets/images/offers/f").concat(id).concat("/renders/").concat(entry.images[0].name);
-        }
-        backgroundImage.addEventListener("error", () => { backgroundImage.setAttribute("src", "../assets/images/temp/pocetna.jpg"); });
-        backgroundImage.setAttribute("src", url);
-
         let projectElement = document.getElementById("detail-info-project");
 
         let planElement = projectElement.querySelector(".plan");
@@ -97,9 +75,9 @@ async function initFlat(id) {
     try {
         tablesJson = await initJson("../assets/data/flats-tables.json");
     } catch(e) {
+        tools.showElement(document.getElementById("detail-table"), false);
         console.error("Could not load tables.");
     }
-
     if (tablesJson != null) {
         for (let entry of tablesJson.tables) {
             if (entry.id != id) {
@@ -138,8 +116,38 @@ async function initFlat(id) {
                 tableBody.append(newRowElement);
             }
         }
-    } else {
-        tools.showElement(document.getElementById("detail-table"), false);
+    }
+
+    let imagesJson;
+    try {
+        imagesJson = await initJson("../assets/data/flats-images.json");
+    } catch(e) {
+        tools.showElement(document.getElementById("detail-info-gallery"), false);
+        console.error("Could not load images.");
+    }
+    if (imagesJson != null) {
+        const galleryElement = document.getElementById("detail-info-gallery");
+        const galleryElementImage = galleryElement.querySelector(".main-image");
+        const galleryElementImages = galleryElement.querySelector(".images");
+        for (let entry of imagesJson.flats) {
+            if (entry.id != flatImagesId) {
+                continue;
+            }
+            if (entry.images == undefined) {
+                tools.showElement(galleryElement, false);
+            } else {
+                let tempUrl = ("../assets/images/offers/renders/");
+                galleryElementImage.setAttribute("src", tempUrl.concat(entry.images[0].name));
+                for (let image of entry.images) {
+                    let el = document.createElement("img");
+                    el.setAttribute("src", tempUrl.concat(image.name));
+                    el.addEventListener("click", () => {
+                        galleryElementImage.setAttribute("src", el.getAttribute("src"));
+                    });
+                    galleryElementImages.appendChild(el);
+                }
+            }
+        }
     }
 }
 
