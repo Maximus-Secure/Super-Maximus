@@ -29,6 +29,16 @@
     bottom: 0px;
     left: 0px;
     background: linear-gradient(0deg, var(--color-page-main) 0%, rgba(255,255,255,0) 100%);
+
+    transition-duration: var(--transition-short);
+}
+
+#landing .transition.inactive {
+    opacity: 1;
+}
+
+#landing .transition.active {
+    opacity: 0;
 }
 
 #about {
