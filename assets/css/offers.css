@@ -1,4 +1,4 @@
-#selector .transition {
+#landing .transition {
     position: absolute;
     z-index: 0;
     width: 100%;
@@ -6,84 +6,54 @@
     bottom: 0px;
     left: 0px;
     background: linear-gradient(0deg, var(--color-page-main) 0%, rgba(255,255,255,0) 100%);
+
+    transition-duration: var(--transition-short);
 }
 
-#selector .content .wrapper .decorations {
-    position: absolute;
+#landing .transition.inactive {
+    opacity: 1;
+}
+
+#landing .transition.active {
+    opacity: 0;
+}
+
+#landing {
     width: 100%;
     height: 100%;
-    left: 0px;
-    top: 0px;
-    border-radius: 5px;
-    overflow: hidden;
-
-    pointer-events: none;
-    user-select: none;
-}
-
-#selector .content .wrapper .decorations img {
-    position: absolute;
-    width: 90px;
-    height: auto;
-}
-
-#selector .content .wrapper .decorations img.first {
-    right: -20px;
-    bottom: -40px;
-}
-
-#selector .content .wrapper .decorations img.second {
-    left: -30px;
-    top: -40px;
-    transform: scaleY(-1);
-}
-
-#selector {
-    width: 100%;
-    height: 100vh;
     position: relative;
-}
-
-#selector img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-#selector .content :is(h1, h2) {
-    margin: 0px;
-    font-weight: normal;
-    text-align: center;
-    color: var(--color-text-heading);
-    text-shadow: 0px 2px 10px var(--color-text-shadow);
-}
-
-#selector .content {
-    position: absolute;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    left: 0px;
-    top: 0px;
-}
-
-#selector .content .wrapper {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    position: relative;
-    padding: 40px 80px 40px 80px;
-    z-index: 1;
+}
+
+#landing::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/gallery/building1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#landing .textbox {
     gap: 40px;
-
-    border-radius: 5px;
-    outline: 1px solid var(--color-text-heading);
 }
 
-#selector .content .wrapper::before {
+#landing .textbox h1 {
+    font-size: 30px;
+}
+
+.textbox h1::before {
+    display: none;
+}
+
+#landing .textbox .wrapper::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -96,7 +66,7 @@
     border-radius: 5px;
 }
 
-#selector .content .wrapper .selections {
+#landing .textbox .selections {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -104,19 +74,19 @@
     gap: 40px;
 }
 
-#selector .content .wrapper .selections .item {
+#landing .textbox .selections .item {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 20px;
 }
 
-#selector .content .wrapper .selections .item>h2 {
+#landing .textbox .selections .item>h2 {
     height: fit-content;
     font-size: 22px;
 }
 
-#selector .content .wrapper .selections .item .options {
+#landing .textbox .selections .item .options {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -130,21 +100,21 @@
     box-shadow: 0px 2px 5px var(--color-text-shadow);
 }
 
-#selector .content .wrapper .selections .item .options img {
+#landing .textbox .selections .item .options img {
     opacity: 0.7;
     width: 16px;
     height: auto;
     object-fit: contain;
 }
 
-#selector .content .wrapper .selections .item .options h2 {
+#landing .textbox .selections .item .options h2 {
    margin: 0px;
    font-size: 16px;
    text-shadow: unset;
    color: var(--color-text-main);
 }
 
-#selector .content .wrapper .selections .item .options ul {
+#landing .textbox .selections .item .options ul {
     position: absolute;
     margin: 0px;
     padding: 25px 0px 25px 0px;
@@ -166,15 +136,15 @@
     clip-path: inset(-1% -1% 101% -1%);
 }
 
-#selector .content .wrapper .selections .item .options ul.inactive {
+#landing .textbox .selections .item .options ul.inactive {
     clip-path: inset(-1% -1% 101% -1%);
 }
 
-#selector .content .wrapper .selections .item .options ul.active {
+#landing .textbox .selections .item .options ul.active {
     clip-path: inset(-1% -1% -1% -1%);
 }
 
-#selector .content .wrapper .selections .item .options ul::before {
+#landing .textbox .selections .item .options ul::before {
     position: absolute;
     content: '';
     width: 100%;
@@ -187,14 +157,14 @@
     border-radius: 5px;
 }
 
-#selector .content .wrapper .selections .item .options li {
+#landing .textbox .selections .item .options li {
     text-align: center;
     color: var(--color-text-heading);
     cursor: pointer;
     font-size: 14px;
 }
 
-#selector .content .wrapper .search {
+#landing .textbox .search {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -206,7 +176,7 @@
     box-shadow: 0px 2px 5px var(--color-text-shadow);
 }
 
-#selector .content .wrapper .search h3 {
+#landing .textbox .search h3 {
     margin: 0px;
     font-size: 16px;
     text-shadow: unset;
@@ -214,7 +184,7 @@
     color: var(--color-text-main);
 }
 
-#selector .content .wrapper .search img {
+#landing .textbox .search img {
     width: 16px;
     height: auto;
     opacity: 0.7;
@@ -275,26 +245,30 @@
 }
 
 @media (hover: hover) {
-    #selector .content .wrapper .selections .item .options li:hover {
+    #landing .textbox .selections .item .options li:hover {
         color: var(--color-page-main);
     }
 }
 
 @media (max-width: 1280px) {
-    #selector .content .wrapper {
+    #landing .textbox {
         padding: 20px 40px 20px 40px;
         margin: 0px 20px 0px 20px;
         gap: 25px;
     }
 
-    #selector .content .wrapper .selections {
+    #landing .textbox .selections {
         width: fit-content;
         gap: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    #selector .content .wrapper .selections .item {
+    #landing .textbox h1 {
+        font-size: 28px;
+    }
+
+    #landing .textbox .selections .item {
         width: 100%;
         justify-content: space-evenly;
     }
@@ -306,50 +280,37 @@
 }
 
 @media (max-width: 640px) {
-    #selector .content .wrapper .selections .item>h2 {
+    #landing .textbox .selections .item>h2 {
         font-size: 18px;
     }
 
-    #selector .content .wrapper .selections .item .options {
+    #landing .textbox .selections .item .options {
         padding: 8px 14px 8px 24px;
     }
 
-    #selector .content .wrapper .selections .item .options h2 {
+    #landing .textbox .selections .item .options h2 {
         font-size: 14px;
     }
 
-    #selector .content .wrapper .search {
+    #landing .textbox .search {
         padding: 8px 14px 8px 24px;
     }
 
-    #selector .content .wrapper .search h3 {
+    #landing .textbox .search h3 {
         font-size: 14px;
     }
 }
 
 @media (max-width: 425px) {
-    #selector .content .wrapper {
+    #landing .textbox h1 {
+        font-size: 24px;
+    }
+
+    #landing .content .wrapper {
         padding: 20px;
     }
 
-    #selector .content .wrapper .decorations img {
-        position: absolute;
-        width: 60px;
-        height: auto;
-    }
-    
-    #selector .content .wrapper .decorations img.first {
-        right: -10px;
-        bottom: -30px;
-    }
-    
-    #selector .content .wrapper .decorations img.second {
-        left: -15px;
-        top: -30px;
-        transform: scaleY(-1);
-    }
-
-    #selector .content .wrapper .text h1 {
+    #landing .content .wrapper .text h1 {
         font-size: 22px;
     }
 
@@ -361,7 +322,7 @@
 }
 
 @media (max-width: 375px) {
-    #selector .content .wrapper .selections .item {
+    #landing .textbox .selections .item {
         width: 100%;
         flex-direction: column;
         gap: 5px;

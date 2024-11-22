@@ -145,7 +145,7 @@ let structureOption;
 let sizeOption;
 
 function initSelectors() {
-    let items = document.getElementById("selector").querySelector(".content").querySelector(".wrapper").querySelector(".selections").querySelectorAll(".item");
+    let items = document.getElementById("landing").querySelector(".textbox").querySelector(".selections").querySelectorAll(".item");
     for (let item of items) {
         item.querySelector(".options").addEventListener("mouseover", () => {
             tools.showElement(item.querySelector("ul"), true);
