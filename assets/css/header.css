@@ -4,6 +4,7 @@ header {
     top: 0px;
     z-index: 10;
 
+    background: linear-gradient(180deg, var(--color-page-main) 0%, rgba(255,255,255,0) 100%);
     text-shadow: 0px 0px 1px var(--color-text-heading);
 }
 
@@ -22,7 +23,7 @@ header::before {
 header.inactive::before {
     /*background-color: rgba(255, 255, 255, 0);*/
     /*background: linear-gradient(180deg, var(--color-page-main) 65%, rgba(255,255,255,0) 100%);*/
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 header.active::before {

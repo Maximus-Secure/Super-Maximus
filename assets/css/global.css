@@ -9,6 +9,7 @@
     --color-page-outline: rgb(44, 44, 44);
 
     --transition-short: 0.2s;
+    --transition-medium: 1.2s;
 }
 
 @font-face {
@@ -20,6 +21,7 @@
 html {
     height: 100%;
     user-select: none;
+    scroll-behavior: smooth;
 }
 
 main {
