@@ -27,14 +27,14 @@
     content: '';
     position: absolute;
     left: 100px;
-    top: 0px;
+    bottom: 0px;
     width: 100%;
     height: 100%;
     
     background-image: url("../images/extras/decoration-gold-0.png");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: right bottom;
     background-attachment: local;
 
     opacity: 0;
@@ -67,7 +67,6 @@
 }
 
 #landing.inactive .transition {
-    opacity: 1;
     opacity: 0;
 }
 
@@ -106,6 +105,16 @@
     font-size: 20px;
     text-align: justify;
     width: 100%;
+}
+
+@media not (hover: hover) {
+    #landing.inactive .transition {
+        opacity: 1;
+    }
+
+    #landing::after {
+        display: none;
+    }
 }
 
 @media (width > 1280px) {
