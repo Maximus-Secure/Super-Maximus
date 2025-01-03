@@ -68,7 +68,7 @@
             "id": "08",
             "name": "Stan 08",
             "size": "30.33",
-            "structure": "apartment",
+            "structure": "one-room",
             "floor": "first",
             "available": "true",
             "imagesId": "08-14-20-26"
@@ -122,7 +122,7 @@
             "id": "14",
             "name": "Stan 14",
             "size": "30.33",
-            "structure": "apartment",
+            "structure": "one-room",
             "floor": "second",
             "available": "true",
             "imagesId": "08-14-20-26"
@@ -176,7 +176,7 @@
             "id": "20",
             "name": "Stan 20",
             "size": "30.33",
-            "structure": "apartment",
+            "structure": "one-room",
             "floor": "third",
             "available": "true",
             "imagesId": "08-14-20-26"
@@ -230,7 +230,7 @@
             "id": "26",
             "name": "Stan 26",
             "size": "30.33",
-            "structure": "apartment",
+            "structure": "one-room",
             "floor": "fourth",
             "available": "true",
             "imagesId": "08-14-20-26"

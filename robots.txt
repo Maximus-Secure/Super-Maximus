@@ -1,0 +1,9 @@
+User-agent: *
+
+Allow: /
+
+Disallow: ./assets/js
+Disallow: ./images/
+Disallow: ./assets/css
+
+Allow: ./images/icons/icon.png
