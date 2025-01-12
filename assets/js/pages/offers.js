@@ -47,6 +47,11 @@ async function initFlats(template) {
         newItem.querySelector(".name").innerHTML = entry.name;
         newItem.querySelector(".floor-size").innerHTML = resolveFloor(entry.floor).concat(" - ").concat(entry.size).concat("m2");
         newItem.querySelector(".structure").innerHTML = resolveStructure(entry.structure);
+        if (entry.available == "true") {
+            newItem.querySelector(".sold-wrapper").classList.add("inactive");
+        } else {
+            newItem.querySelector(".sold-wrapper").classList.add("active");
+        }
         flats.push(new Flat(newItem, entry));
     }
 

@@ -206,6 +206,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
     border-radius: 5px;
     padding: 10px 0px 0px 0px;
@@ -226,15 +227,15 @@
     color: var(--color-text-main);
 }
 
-#offers .item h1 {
+#offers .item>h1 {
     font-size: 28px;
 }
 
-#offers .item h2 {
+#offers .item>h2 {
     font-size: 24px;
 }
 
-#offers .item h3 {
+#offers .item>h3 {
     font-size: 20px;
 }
 
@@ -242,6 +243,32 @@
     width: 300px;
     aspect-ratio: 1/1;
     object-fit: contain;
+}
+
+#offers .item .sold-wrapper {
+    position: absolute;
+    top: 60%;
+    left: 0px;
+
+    z-index: 1;
+
+    width: 100%;
+    height: fit-content;
+}
+
+#offers .item .sold-wrapper>h1 {
+    text-transform: uppercase;
+    text-align: center;
+
+    background-color: var(--color-text-heading);
+}
+
+#offers .item .sold-wrapper.inactive {
+    display: none;
+}
+
+#offers .item .sold-wrapper.active {
+    display: block;
 }
 
 @media (hover: hover) {
