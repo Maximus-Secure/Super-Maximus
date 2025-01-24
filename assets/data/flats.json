@@ -106,7 +106,7 @@
             "size": "26.02",
             "structure": "apartment",
             "floor": "second",
-            "available": "false",
+            "available": "true",
             "imagesId": "06-12-18-24"
         },
         {
@@ -151,7 +151,7 @@
             "size": "74.34",
             "structure": "two-room",
             "floor": "third",
-            "available": "true",
+            "available": "false",
             "imagesId": "05-11-17-23"
         },
         {
@@ -214,7 +214,7 @@
             "size": "26.02",
             "structure": "apartment",
             "floor": "fourth",
-            "available": "true",
+            "available": "false",
             "imagesId": "06-12-18-24"
         },
         {
@@ -268,7 +268,7 @@
             "size": "75.44",
             "structure": "two-room",
             "floor": "attic",
-            "available": "true",
+            "available": "false",
             "imagesId": "30"
         }
     ]
