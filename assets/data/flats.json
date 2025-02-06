@@ -7,7 +7,7 @@
             "size": "30.76",
             "structure": "apartment",
             "floor": "ground",
-            "available": "true",
+            "available": "false",
             "imagesId": "01"
         },
         {
@@ -16,7 +16,7 @@
             "size": "30.02",
             "structure": "apartment",
             "floor": "ground",
-            "available": "true",
+            "available": "false",
             "imagesId": "02"
         },
         {
