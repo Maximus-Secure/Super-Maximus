@@ -79,7 +79,7 @@
             "size": "53.99",
             "structure": "one-room",
             "floor": "first",
-            "available": "true",
+            "available": "false",
             "imagesId": "09-15-21-27"
         },
         {
@@ -106,7 +106,7 @@
             "size": "26.02",
             "structure": "apartment",
             "floor": "second",
-            "available": "false",
+            "available": "true",
             "imagesId": "06-12-18-24"
         },
         {
@@ -169,7 +169,7 @@
             "size": "57.36",
             "structure": "two-room",
             "floor": "third",
-            "available": "true",
+            "available": "false",
             "imagesId": "07-13-19-25"
         },
         {
@@ -178,7 +178,7 @@
             "size": "40.27",
             "structure": "one-room",
             "floor": "third",
-            "available": "true",
+            "available": "false",
             "imagesId": "08-14-20-26"
         },
         {
@@ -232,7 +232,7 @@
             "size": "40.27",
             "structure": "one-room",
             "floor": "fourth",
-            "available": "true",
+            "available": "false",
             "imagesId": "08-14-20-26"
         },
         {
